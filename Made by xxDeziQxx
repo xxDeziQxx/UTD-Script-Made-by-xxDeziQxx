@@ -9,6 +9,11 @@ if game.PlaceId == 4826840032 then
     Section:NewButton("Infinite Yield", "Attaching Infinite Yield", function()
         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
     end)
+    
+     -- Simply sets Your WalkSpeed to 70 and JumpPower to 100. Die to reset effect
+    Section:NewButton("Im'a fast boi", "Perm sets Your Speed to 70 and Jumppower to 100", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xxDeziQxx/Speedy/main/Speedy%20and%20Jumpy"))()
+    end)
 
 
     -- NOTE: You cannot Disable it, only rejoining will disable
@@ -83,4 +88,22 @@ if game.PlaceId == 4826840032 then
     Section:NewKeybind("Supreme Damage Presents", "Press V", Enum.KeyCode.V, function()
         game:service'ReplicatedStorage'.UseSpell:FireServer("Supreme Damage Presents")
     end)
+end
+
+if game.PlaceId == 2848920787 then
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Undertale Boss Battles", "Sentinel")
+
+
+    local Tab = Window:NewTab("Main")
+    local Section = Tab:NewSection("Main Scripts")
+    Section:NewButton("Infinite Yield", "Attaching Infinite Yield", function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end)
+
+
+    Section:NewButton("Im'a fast boi", "Perm sets Your Speed to 70 (Die to reset)", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xxDeziQxx/Speedy/main/Speedy%20and%20Jumpy"))()
+    end)
+
 end
