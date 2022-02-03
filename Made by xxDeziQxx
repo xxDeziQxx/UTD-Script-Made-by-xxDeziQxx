@@ -33,8 +33,6 @@ Section:NewButton("Stop", "Stop", function()
     getgenv().farmer = false;
 end)
 
-Section:NewLabel("Don't click Start 2 times at once")
-
 -- Spells NOTE: You can change spells simply just by replacing Names of spells to spells name you want to use. You need to change name in keybinds too.
 local Tab = Window:NewTab("Spells")
 local Section = Tab:NewSection("Spells") 
