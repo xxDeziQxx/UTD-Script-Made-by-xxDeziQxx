@@ -1,387 +1,394 @@
-
-    local colors = {
-        SchemeColor = Color3.fromRGB(0,150,150),
-        Background = Color3.fromRGB(0, 0, 0),
-        Header = Color3.fromRGB(0, 0, 0),
-        TextColor = Color3.fromRGB(255,255,255),
-        ElementColor = Color3.fromRGB(20, 20, 20)
-    }
-    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Undertale Dungeons Script Hub", colors)
-    
-    
-    -- Infinite Yield. Use commands like : Fly, remote control and others. NOTE: GodMode doesn't work, it will kill You
-    local Tab = Window:NewTab("Main")
-    local Section = Tab:NewSection("Main Scripts")
-    Section:NewButton("Infinite Yield", "Attaching Infinite Yield", function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-    end)
-        
-     -- Simply sets Your WalkSpeed to 70 and JumpPower to 100. Die to reset effect
-    Section:NewButton("Im'a fast boi", "Perm sets Your Speed to 70 and Jumppower to 100", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/xxDeziQxx/Speedy/main/Speedy%20and%20Jumpy"))()
-    end)
+local colors = {
+    SchemeColor = Color3.fromRGB(0,150,150),
+    Background = Color3.fromRGB(0, 0, 0),
+    Header = Color3.fromRGB(0, 0, 0),
+    TextColor = Color3.fromRGB(255,255,255),
+    ElementColor = Color3.fromRGB(20, 20, 20)
+}
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Undertale Dungeons Script Hub", colors)
 
 
-    -- NOTE: You cannot Disable it, only rejoining will disable
-    Section:NewButton("Devestating Slash Permament", "Keep using Devestating Slash every 2 seconds", function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/xxDeziQxx/Script/main/source'))()
+-- Infinite Yield. Use commands like : Fly, remote control and others. NOTE: GodMode doesn't work, it will kill You
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Main Scripts")
+Section:NewButton("Infinite Yield", "Attaching Infinite Yield", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+    
+ -- Simply sets Your WalkSpeed to 70 and JumpPower to 100. Die to reset effect
+Section:NewButton("Im'a fast boi", "Perm sets Your Speed to 70 and Jumppower to 100", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xxDeziQxx/Speedy/main/Speedy%20and%20Jumpy"))()
+end)
+
+local Tab = Window:NewTab("Devestating Slash")
+local Section = Tab:NewSection("Devestating Slash Toggle Buttons")
+
+
+Section:NewButton("Start", "Start", function()
+    getgenv().farmer = true;
+end)
+
+Section:NewButton("Stop", "Stop", function()
+    getgenv().farmer = false;
+end)
+
+Section:NewLabel("Don't click Start 2 times at once")
+
+-- Spells NOTE: You can change spells simply just by replacing Names of spells to spells name you want to use. You need to change name in keybinds too.
+local Tab = Window:NewTab("Spells")
+local Section = Tab:NewSection("Spells") 
+Section:NewButton("Devilsknife", "Using Devilsknife", function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Devilsknife") 
+end)
+Section:NewButton("Devestating Slash", "Using Devestating Slash ", function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Devestating Slash") 
+end)
+Section:NewButton("Toxins", "Using Toxins ", function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Toxins")
+end)
+Section:NewButton("Mana Lash", "Using Mana Lash", function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Mana Lash")
+end)
+Section:NewButton("Deal Heal", "Using Deal Heal", function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Deal Heal")
+end)
+Section:NewButton("Chaos Heal", "Using Chaos Heal", function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Chaos Heal")
+end)
+Section:NewButton("Endless Stabs", "Using Endless Stabs", function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Endless Stabs")
+end)
+Section:NewButton("Riptide", "Using Riptide", function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Riptide")
+end)
+Section:NewButton("Supreme Damage Presents", "Using Supreme Damage Presents", function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Supreme Damage Presents")
+end)
+
+
+-- Keybinds (You can Change Them)
+local Section = Tab:NewSection("Keybinds")
+Section:NewKeybind("Devilsknife", "Press E", Enum.KeyCode.E, function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Devilsknife")
+end)
+Section:NewKeybind("Devestating Slash", "Press Q", Enum.KeyCode.Q, function()
+   game:service'ReplicatedStorage'.UseSpell:FireServer("Devestating Slash")
+end)
+Section:NewKeybind("Toxins", "Press R", Enum.KeyCode.R, function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Toxins")
+end)
+Section:NewKeybind("Mana Lash", "Press T", Enum.KeyCode.T, function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Mana Lash")
+end)
+Section:NewKeybind("Deal Heal", "Press F", Enum.KeyCode.F, function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Deal Heal")
+end)
+Section:NewKeybind("Chaos Heal", "Press Z", Enum.KeyCode.Z, function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Chaos Heal")
+end)
+Section:NewKeybind("Endless Stabs", "Press X", Enum.KeyCode.X, function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Endless Stabs")
+end)
+Section:NewKeybind("Riptide", "Press C", Enum.KeyCode.C, function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Riptide")
+end)
+Section:NewKeybind("Supreme Damage Presents", "Press V", Enum.KeyCode.V, function()
+    game:service'ReplicatedStorage'.UseSpell:FireServer("Supreme Damage Presents")
+end)
+
+
+
+
+
+    local Tab = Window:NewTab("Dungeons")
+    local Section = Tab:NewSection("The Ruins")     
+
+    Section:NewButton("The Ruins Easy", "Creates Dungeon: The Ruins Easy", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Ruins Easy"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
     end)
 
-    -- Spells NOTE: You can change spells simply just by replacing Names of spells to spells name you want to use. You need to change name in keybinds too.
-    local Tab = Window:NewTab("Spells")
-    local Section = Tab:NewSection("Spells") 
-    Section:NewButton("Devilsknife", "Using Devilsknife", function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Devilsknife") 
-    end)
-    Section:NewButton("Devestating Slash", "Using Devestating Slash ", function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Devestating Slash") 
-    end)
-    Section:NewButton("Toxins", "Using Toxins ", function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Toxins")
-    end)
-    Section:NewButton("Mana Lash", "Using Mana Lash", function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Mana Lash")
-    end)
-    Section:NewButton("Deal Heal", "Using Deal Heal", function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Deal Heal")
-    end)
-    Section:NewButton("Chaos Heal", "Using Chaos Heal", function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Chaos Heal")
-    end)
-    Section:NewButton("Endless Stabs", "Using Endless Stabs", function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Endless Stabs")
-    end)
-    Section:NewButton("Riptide", "Using Riptide", function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Riptide")
-    end)
-    Section:NewButton("Supreme Damage Presents", "Using Supreme Damage Presents", function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Supreme Damage Presents")
-    end)
-    
-    
-    -- Keybinds (You can Change Them)
-    local Section = Tab:NewSection("Keybinds")
-    Section:NewKeybind("Devilsknife", "Press E", Enum.KeyCode.E, function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Devilsknife")
-    end)
-    Section:NewKeybind("Devestating Slash", "Press Q", Enum.KeyCode.Q, function()
-       game:service'ReplicatedStorage'.UseSpell:FireServer("Devestating Slash")
-    end)
-    Section:NewKeybind("Toxins", "Press R", Enum.KeyCode.R, function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Toxins")
-    end)
-    Section:NewKeybind("Mana Lash", "Press T", Enum.KeyCode.T, function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Mana Lash")
-    end)
-    Section:NewKeybind("Deal Heal", "Press F", Enum.KeyCode.F, function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Deal Heal")
-    end)
-    Section:NewKeybind("Chaos Heal", "Press Z", Enum.KeyCode.Z, function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Chaos Heal")
-    end)
-    Section:NewKeybind("Endless Stabs", "Press X", Enum.KeyCode.X, function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Endless Stabs")
-    end)
-    Section:NewKeybind("Riptide", "Press C", Enum.KeyCode.C, function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Riptide")
-    end)
-    Section:NewKeybind("Supreme Damage Presents", "Press V", Enum.KeyCode.V, function()
-        game:service'ReplicatedStorage'.UseSpell:FireServer("Supreme Damage Presents")
-    end)
-    
-    
-    
-    
-    
-        local Tab = Window:NewTab("Dungeons")
-        local Section = Tab:NewSection("The Ruins")     
-    
-        Section:NewButton("The Ruins Easy", "Creates Dungeon: The Ruins Easy", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Ruins Easy"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-    
-        Section:NewButton("The Ruins Medium", "Creates Dungeon: The Ruins Medium", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Ruins Medium"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-    
-        Section:NewButton("The Ruins Hard", "Creates Dungeon: The Ruins Hard", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Ruins Hard"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        local Section = Tab:NewSection("Snowdin")   
-    
-        Section:NewButton("Snowdin Easy", "Creates Dungeon: Snowdin Easy", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Snowdin Easy"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-    
-        Section:NewButton("Snowdin Medium", "Creates Dungeon: Snowdin Medium", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Snowdin Medium"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-    
-        Section:NewButton("Snowdin Hard", "Creates Dungeon: Snowdin Hard", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Snowdin Hard"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-    
-        local Section = Tab:NewSection("Waterfall")   
-    
-        Section:NewButton("Waterfall Easy", "Creates Dungeon: Waterfall Easy", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Waterfall Easy"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        Section:NewButton("Waterfall Medium", "Creates Dungeon: Waterfall Medium", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Waterfall Medium"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        Section:NewButton("Waterfall Hard", "Creates Dungeon: Waterfall Hard", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Waterfall Hard"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        Section:NewButton("Undyne The Undying", "Creates Dungeon: Undyne The Undying", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Undyne The Undying"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        local Section = Tab:NewSection("Waterfall Other")   
-    
-        Section:NewButton("Waterfall Deez", "Creates Dungeon: Waterfall Deez", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Waterfall Deez"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-    
-        local Section = Tab:NewSection("Hotland")   
-    
-        Section:NewButton("Hotland Easy", "Creates Dungeon: Hotland Easy", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hotland Easy"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        Section:NewButton("Hotland Medium", "Creates Dungeon: Hotland Medium", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hotland Medium"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        Section:NewButton("Hotland Hard", "Creates Dungeon: Hotland Hard", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hotland Hard"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        local Section = Tab:NewSection("Laboratory (You need to have DLC)")   
-    
-        Section:NewButton("The Halls", "Creates Dungeon: The Halls", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Halls"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        Section:NewButton("The Chambers", "Creates Dungeon: The Chambers", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Chambers"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        Section:NewButton("The Back-Rooms", "Creates Dungeon: The Back-Rooms", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Back-Rooms"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        Section:NewButton("The Experiment", "Creates Dungeon: The Experiment", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Experiment"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        local Section = Tab:NewSection("CORE")   
-        Section:NewButton("CORE", "Creates Dungeon: CORE", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["CORE"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        local Section = Tab:NewSection("The Mountain King")   
-    
-        Section:NewButton("The Mountain King", "Creates Dungeon: The Mountain King", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Mountain King"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        local Section = Tab:NewSection("Solo (Endings) Dungeons")   
-        
-        Section:NewButton("The End?", "Creates Dungeon: The End?", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["The End?"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-        
-        
-        Section:NewButton("Hopes and Dreams", "Creates Dungeon: Hopes and Dreams", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hopes and Dreams"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        
-        Section:NewButton("Megalovania", "Creates Dungeon: Megalovania", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Megalovania"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        
-        Section:NewButton("Megalo Strike Back", "Creates Dungeon: Megalo Strike Back", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Megalo Strike Back"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        local Section = Tab:NewSection("Raids (Only 1 for now...)")   
-        
-        Section:NewButton("Boss Raid 0-1", "Creates Dungeon: Boss Raid 0-1", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Boss Raid 0-1"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        local Section = Tab:NewSection("Endless")   
-    
-        Section:NewButton("Endless", "Creates Dungeon: Endless", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Endless"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        local Section = Tab:NewSection("Basically the Strongest ones")   
-    
-        Section:NewButton("Lights Down (No items for it yet)", "Creates Dungeon: Lights Down", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Lights Down"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-        
-        
-        Section:NewButton("Spamton NEO", "Creates Dungeon: Spamton NEO", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Spamton NEO"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        
-        Section:NewButton("Snowgrave NEO", "Creates Dungeon: Snowgrave NEO", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Snowgrave NEO"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        
-        Section:NewButton("Proceed (Yep it's till ingame)", "Creates Dungeon: Proceed", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Proceed"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        
-        Section:NewButton("Danger", "Creates Dungeon: Danger", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Danger"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        
-        Section:NewButton("Jevil", "Creates Dungeon: Jevil", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Jevil"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
-    
-        Section:NewButton("Spamton NEO V2", "Creates Dungeon: Spamton NEO V2", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Spamton NEO V2"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
 
-        local Section = Tab:NewSection("Others") 
-        
-        Section:NewButton("Hopes and Memes", "Creates Dungeon: Hopes and Memes", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hopes and Memes"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
+    Section:NewButton("The Ruins Medium", "Creates Dungeon: The Ruins Medium", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Ruins Medium"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
 
-        Section:NewButton("Peter Griffin", "Creates Dungeon: Peter Griffin", function()
-            local A_1 = game:GetService("ReplicatedStorage").Dungeons["Peter Griffin"]
-            local A_2 = "A player made dungeon!"
-            local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
-            Event:FireServer(A_1, A_2)
-        end)
 
-        local Section = Tab:NewSection("Gold Road")   
+    Section:NewButton("The Ruins Hard", "Creates Dungeon: The Ruins Hard", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Ruins Hard"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
 
-        
+    local Section = Tab:NewSection("Snowdin")   
+
+    Section:NewButton("Snowdin Easy", "Creates Dungeon: Snowdin Easy", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Snowdin Easy"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+
+    Section:NewButton("Snowdin Medium", "Creates Dungeon: Snowdin Medium", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Snowdin Medium"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+
+    Section:NewButton("Snowdin Hard", "Creates Dungeon: Snowdin Hard", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Snowdin Hard"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+
+    local Section = Tab:NewSection("Waterfall")   
+
+    Section:NewButton("Waterfall Easy", "Creates Dungeon: Waterfall Easy", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Waterfall Easy"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("Waterfall Medium", "Creates Dungeon: Waterfall Medium", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Waterfall Medium"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("Waterfall Hard", "Creates Dungeon: Waterfall Hard", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Waterfall Hard"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("Undyne The Undying", "Creates Dungeon: Undyne The Undying", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Undyne The Undying"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("Waterfall Other")   
+
+    Section:NewButton("Waterfall Deez", "Creates Dungeon: Waterfall Deez", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Waterfall Deez"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+
+    local Section = Tab:NewSection("Hotland")   
+
+    Section:NewButton("Hotland Easy", "Creates Dungeon: Hotland Easy", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hotland Easy"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("Hotland Medium", "Creates Dungeon: Hotland Medium", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hotland Medium"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("Hotland Hard", "Creates Dungeon: Hotland Hard", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hotland Hard"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("Laboratory (You need to have DLC)")   
+
+    Section:NewButton("The Halls", "Creates Dungeon: The Halls", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Halls"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("The Chambers", "Creates Dungeon: The Chambers", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Chambers"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("The Back-Rooms", "Creates Dungeon: The Back-Rooms", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Back-Rooms"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("The Experiment", "Creates Dungeon: The Experiment", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Experiment"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("CORE")   
+    Section:NewButton("CORE", "Creates Dungeon: CORE", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["CORE"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("The Mountain King")   
+
+    Section:NewButton("The Mountain King", "Creates Dungeon: The Mountain King", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["The Mountain King"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("Solo (Endings) Dungeons")   
+    
+    Section:NewButton("The End?", "Creates Dungeon: The End?", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["The End?"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+    
+    
+    Section:NewButton("Hopes and Dreams", "Creates Dungeon: Hopes and Dreams", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hopes and Dreams"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    
+    Section:NewButton("Megalovania", "Creates Dungeon: Megalovania", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Megalovania"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    
+    Section:NewButton("Megalo Strike Back", "Creates Dungeon: Megalo Strike Back", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Megalo Strike Back"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("Raids (Only 1 for now...)")   
+    
+    Section:NewButton("Boss Raid 0-1", "Creates Dungeon: Boss Raid 0-1", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Boss Raid 0-1"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("Endless")   
+
+    Section:NewButton("Endless", "Creates Dungeon: Endless", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Endless"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("Basically the Strongest ones")   
+
+    Section:NewButton("Lights Down (No items for it yet)", "Creates Dungeon: Lights Down", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Lights Down"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+    
+    
+    Section:NewButton("Spamton NEO", "Creates Dungeon: Spamton NEO", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Spamton NEO"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    
+    Section:NewButton("Snowgrave NEO", "Creates Dungeon: Snowgrave NEO", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Snowgrave NEO"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    
+    Section:NewButton("Proceed (Yep it's till ingame)", "Creates Dungeon: Proceed", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Proceed"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    
+    Section:NewButton("Danger", "Creates Dungeon: Danger", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Danger"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    
+    Section:NewButton("Jevil", "Creates Dungeon: Jevil", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Jevil"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("Spamton NEO V2", "Creates Dungeon: Spamton NEO V2", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Spamton NEO V2"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("Others") 
+    
+    Section:NewButton("Hopes and Memes", "Creates Dungeon: Hopes and Memes", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Hopes and Memes"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    Section:NewButton("Peter Griffin", "Creates Dungeon: Peter Griffin", function()
+        local A_1 = game:GetService("ReplicatedStorage").Dungeons["Peter Griffin"]
+        local A_2 = "A player made dungeon!"
+        local Event = game:GetService("ReplicatedStorage").SendServer.CreateDungeon
+        Event:FireServer(A_1, A_2)
+    end)
+
+    local Section = Tab:NewSection("Gold Road")   
+
+    
     Section:NewButton("Gold Road (First Ever Event)", "Creates Dungeon: Gold Road", function()
         local A_1 = game:GetService("ReplicatedStorage").Dungeons["Gold Road"]
         local A_2 = "A player made dungeon!"
@@ -470,11 +477,16 @@
     end)
 
     
-        local Tab = Window:NewTab("Ui Customization")
-        local Section = Tab:NewSection("Customize (Currently only 1 option)")
-         
-        -- Close/Open UI
-        Section:NewKeybind("Close/Open UI", "Choose Keybind to close/open UI. DEFAULT = TAB", Enum.KeyCode.Tab, function()
-            Library:ToggleUI()
-        end)
+    local Tab = Window:NewTab("Ui Customization")
+    local Section = Tab:NewSection("Customize (Currently only 1 option)")
+        
+    -- Close/Open UI
+    Section:NewKeybind("Close/Open UI", "Choose Keybind to close/open UI. DEFAULT = TAB", Enum.KeyCode.Tab, function()
+        Library:ToggleUI()
+    end)
 
+    while wait(2.0) do
+        if getgenv().farmer == true then
+            game:service'ReplicatedStorage'.UseSpell:FireServer("Devestating Slash")
+        end
+    end
